@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+        
+        <p:panel>
+            <h:link value="Crear encuesta" outcome="add" />
+        </p:panel>
+        <h:form>
+            <h1><h:outputText value="Encuestas"/></h1>
+            <p:dataTable value="#{uFormularioEncuentraController.listaFormularioEncuensta()}" var="item">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Id"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Numero documento"/>
+                    </f:facet>
+                    <h:outputText value="#{item.numeroDocumento}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Correo electronico"/>
+                    </f:facet>
+                    <h:outputText value="#{item.email}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Comentario"/>
+                    </f:facet>
+                    <h:outputText value="#{item.comentario}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Fecha de reespuesta"/>
+                    </f:facet>
+                    <h:outputText value="#{item.fechaRespuesta}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Marca PC"/>
+                    </f:facet>
+                    <h:outputText value="#{item.marcaPcFk.descripcion}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+    </h:body>
+</html>
+
